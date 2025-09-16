@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">Quiz</string>
-    <string name="alternativa_a">Palmeiras</string>
-    <string name="alternativa_b">Santos</string>
-    <string name="alternativa_c">Sao Paulo</string>
-    <string name="alternativa_d">Corinthians</string>
+    <string name="alternativa_a">Resposta 1</string>
+    <string name="alternativa_b">Resposta 2</string>
+    <string name="alternativa_c">Resposta 3</string>
+    <string name="alternativa_d">Resposta 4</string>
     <string name="pergunta_1">Quem é o maior clube do Brasil?</string>
     <string name="pergunta_2">Quem é o pior clube do Brasil?</string>
 </resources>
