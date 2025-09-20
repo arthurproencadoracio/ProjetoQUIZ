@@ -1,5 +1,6 @@
-package com.example.java;
+package com.example.quiz;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,14 +19,13 @@ public class MainActivity extends AppCompatActivity {
     private TextView txvPergunta;
     private RadioGroup rbgPrincipal;
     private Button btnResponder;
-    private TextView txvResultado;
-    private Button btnReiniciar;
 
-    private int pontuacao = 0;
-    private int indicePergunta = 0;
+
+     int pontuacao = 0;
+     int indicePergunta = 0;
 
     // Perguntas
-    private String[] perguntas = {
+     String[] perguntas = {
             "Pergunta 1: Qual o primeiro campeão mundial?",
             "Pergunta 2: Qual o maior campeão brasileiro de todos os tempos?",
             "Pergunta 3: Quem será rebaixado em 2025?",
@@ -34,14 +34,15 @@ public class MainActivity extends AppCompatActivity {
     };
 
     // IDs das respostas corretas
-    private int[] respostasCorretas = {
-            R.id.rbA, // Pergunta 1 -> rb_a
-            R.id.rbA, // Pergunta 2 -> rb_a
-            R.id.rbB, // Pergunta 3 -> rb_b
-            R.id.rbD, // Pergunta 4 -> rb_d
-            R.id.rbC  // Pergunta 5 -> rb_c
+     int[] respostasCorretas = {
+            R.id.rb_a, // Pergunta 1 -> rb_a
+            R.id.rb_a, // Pergunta 2 -> rb_a
+            R.id.rb_b, // Pergunta 3 -> rb_b
+            R.id.rb_d, // Pergunta 4 -> rb_d
+            R.id.rb_c  // Pergunta 5 -> rb_c
     };
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,8 +51,6 @@ public class MainActivity extends AppCompatActivity {
         txvPergunta = findViewById(R.id.txvPerguntas);
         rbgPrincipal = findViewById(R.id.rdgPrincipal);
         btnResponder = findViewById(R.id.btnResponder);
-        txvResultado = findViewById(R.id.txvResultado);
-        btnReiniciar = findViewById(R.id.btnReiniciar);
 
         carregarPergunta();
 
@@ -63,14 +62,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //btnReiniciar.setOnClickListener(v -> reiniciarQuiz());
-
-        btnReiniciar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                reiniciarQuiz();
-            }
-        });
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -81,17 +72,12 @@ public class MainActivity extends AppCompatActivity {
             txvPergunta.setText(perguntas[indicePergunta]);
             rbgPrincipal.clearCheck();
 
-            txvResultado.setText("Pontuação: " + pontuacao + " / " + perguntas.length);
-            txvResultado.setVisibility(View.VISIBLE);
             btnResponder.setEnabled(true);
-            btnReiniciar.setVisibility(View.GONE);
 
         } else {
             txvPergunta.setText("Quiz finalizado!");
-            txvResultado.setText("Você acertou " + pontuacao + " de " + perguntas.length + " perguntas.");
-            txvResultado.setVisibility(View.VISIBLE);
             btnResponder.setEnabled(false);
-            btnReiniciar.setVisibility(View.VISIBLE);
+
         }
     }
 

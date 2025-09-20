@@ -5,5 +5,5 @@
     <string name="alternativa_c">Resposta 3</string>
     <string name="alternativa_d">Resposta 4</string>
     <string name="pergunta_1">Quem é o maior clube do Brasil?</string>
-    <string name="pergunta_2">Quem é o pior clube do Brasil?</string>
+    <string name="texto_botao">RESPONDER</string>
 </resources>
